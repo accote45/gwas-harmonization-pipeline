@@ -41,23 +41,25 @@ vi /qc_scripts/json_configs/my_trait.json
 
 **Example JSON:**
 ```json
-{
-  "trait": "my_trait",
-  "source": "NonBiobank",
-  "gwas_file": "../raw/my_trait/original_gwas.txt.gz",
-  "build": "37",
-  "rsid_col": "SNP",
-  "chr_col": "CHR",
-  "pos_col": "BP",
-  "A1": "A1",
-  "A2": "A2",
-  "beta_col": "BETA",
-  "se_col": "SE",
-  "pval_col": "P",
-  "eaf_col": "FRQ",
-  "n_col": "N",
-  "info_col": "INFO"
-}
+[
+  {
+    "trait": "trait_name",      # Name of the trait being analyzed
+    "source": "NonBiobank",          # Does the GWAS come from a biobank or non-biobank source (value = NonBiobank or Biobank)
+    "gwas_file": "/path/to/gwas/summary_statistics.txt",        # path to the GWAS summary statistics file
+    "build": "37",        # genome build of the GWAS summary statistics (value = 37 or 38)
+    "rsid_col": "SNP",      # rsID column
+    "chr_col": "CHR",       # chromosome column
+    "pos_col": "BP",    # position column
+    "beta_col": "BETA",         # effect size column
+    "se_col": "SE",     # standard error column
+    "pval_col": "P",        # p-value column
+    "A1": "A1",    # effect allele
+    "A2": "A2",     # non-effect allele
+    "eaf_col": "FRQ",     # effect allele frequency column
+    "n_col": "N", # sample size column (optional)
+    "info_col": "INFO"      # imputation quality column (optional)
+  }
+]
 ```
 
 ### 3. Run Harmonization
