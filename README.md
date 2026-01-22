@@ -47,7 +47,7 @@ vi /qc_scripts/json_configs/my_trait.json
     "source": "NonBiobank",          # Does the GWAS come from a biobank or non-biobank source (value = NonBiobank or Biobank)
     "gwas_file": "/path/to/gwas/summary_statistics.txt",        # path to the GWAS summary statistics file
     "build": "37",        # genome build of the GWAS summary statistics (value = 37 or 38)
-    "rsid_col": "SNP",      # rsID column
+    "rsid_col": "SNP",      # rsID column (optional)
     "chr_col": "CHR",       # chromosome column
     "pos_col": "BP",    # position column
     "beta_col": "BETA",         # effect size column
@@ -152,7 +152,7 @@ GWASs/
 
 | Field | Description | Notes |
 |-------|-------------|-------|
-| `rsid_col` | rsID colum
+| `rsid_col` | rsID column | Will be included if present; variants identified by chr:pos:A1:A2 if missing |
 | `eaf_col` | Effect allele frequency
 | `n_col` | Sample size 
 | `info_col` | Imputation quality score
