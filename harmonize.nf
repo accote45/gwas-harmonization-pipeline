@@ -67,7 +67,7 @@ process MERGE_BUILDS {
     publishDir "${params.output_dir}/${trait}", mode: 'copy'
     
     input:
-    tuple val(trait), val(source), path(build1), path(build2)
+    tuple val(trait), val(source), path(hg19_file), path(hg38_file)
     
     output:
     path "${trait}_munged.txt.gz"
@@ -75,8 +75,8 @@ process MERGE_BUILDS {
     """
     Rscript ${projectDir}/merge_builds.R \\
         ${trait} \\
-        ${build1} \\
-        ${build2} \\
+        ${hg19_file} \\
+        ${hg38_file} \\
         ${trait}_munged.txt.gz
     """
 }
@@ -102,7 +102,13 @@ workflow {
     if (params.dual_build) {
         merge_input = HARMONIZE.out.harmonized
             .groupTuple(by: [0, 1])
-            .map { t, s, files -> tuple(t, s, files[0], files[1]) }
+            .map { t, s, files -> 
+                // Sort files by name to ensure hg19 comes before hg38
+                def sorted = files.sort { it.name }
+                def hg19 = sorted.find { it.name.contains('hg19') }
+                def hg38 = sorted.find { it.name.contains('hg38') }
+                tuple(t, s, hg19, hg38)
+            }
         
         MERGE_BUILDS(merge_input)
     }
