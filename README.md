@@ -22,7 +22,7 @@ This **Nextflow DSL2 pipeline** harmonizes GWAS files from diverse sources (publ
 ### 1. Add Your GWAS File
 
 ```bash
-# For non-biobank GWAS
+# For non-biobank GWAS (for example)
 mkdir -p NonBiobanks/raw_data/my_trait/
 cp /path/to/original_gwas.txt.gz NonBiobanks/raw_data/my_trait/
 
