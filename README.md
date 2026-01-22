@@ -8,12 +8,12 @@
 
 This **Nextflow DSL2 pipeline** harmonizes GWAS files from diverse sources (public consortia, biobanks) into a consistent column structure with both hg19 and hg38 coordinates. It handles:
 
-- **Column name mapping** - Converts column names to standard format
-- **Dual-build liftover** - Generates both original and lifted genome builds using MungeSumstats
-- **Build merging** - Combines hg19/hg38 coordinates into single unified output
-- **Quality filtering** - Removes sex chromosomes (X/Y/MT), non-biallelic variants, and duplicates
-- **Allele harmonization** - Performs strand flipping and allele consistency checks
-- **Comprehensive logging** - Records all transformations and filtering statistics per build
+**Key Features:**
+- **Standardization** - Maps column names to unified format
+- **Dual-build coordinates** - Generates hg19 + hg38 positions via MungeSumstats liftover
+- **Quality control** - Filters sex chromosomes, multi-allelic variants, duplicates, and invalid values
+- **Allele harmonization** - Strand flipping, reference alignment, and consistency checks
+- **Detailed logging** - Per-build QC metrics and transformation records
 
 ---
 
