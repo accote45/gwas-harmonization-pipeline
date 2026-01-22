@@ -190,9 +190,14 @@ GWASs/
 3. Remove duplicate variants (keeps first occurrence)
 4. Perform allele flipping and strand alignment
 5. Convert small/large/negative p-values to valid range
+6. Remove variants with standard error ≤ 0
+7. Remove SNPs where sample size (N) is >5 standard deviations above the mean
+8. Drop SNPs where neither A1 nor A2 allele matches the reference genome
+9. Remove variants with missing values in columns: SNP, CHR, BP, A1, A2, BETA, P, N
+10. Sort output by genomic coordinates
 
 **Allele convention:** A1 = effect allele, A2 = non-effect allele  
-*(Note: internally swapped during MungeSumstats processing to align with MungeSumstats requirements)*)*
+*(Note: internally swapped during MungeSumstats processing to align with MungeSumstats requirements)*
 
 
 
