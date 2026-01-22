@@ -163,27 +163,23 @@ GWASs/
 
 ## Standardized Output Format
 
----
-
-## Output Format
-
-### Dual-Build Merged File (`*_munged.txt.gz`)
+### Merged file with both genome builds (`*_munged.txt.gz`)
 
 | Column | Type | Description |
 |--------|------|-------------|
 | `SNP` | character | Variant identifier (rsID) |
-| `CHR_hg19` | character | hg19 chromosome |
-| `BP_hg19` | numeric | hg19 GRCh37 position |
-| `CHR_hg38` | character | hg38 chromosome |
-| `BP_hg38` | numeric | hg38 GRCh38 position |
+| `CHR_hg19` | character | GRCh37 chromosome |
+| `BP_hg19` | numeric | GRCh37 position |
+| `CHR_hg38` | character | GRCh38 chromosome |
+| `BP_hg38` | numeric | GRCh38 position |
 | `A1` | character | Effect allele |
 | `A2` | character | Non-effect allele |
 | `BETA` | numeric | Effect size |
 | `SE` | numeric | Standard error of BETA |
 | `P` | numeric | P-value |
-| `FRQ` | numeric | Effect allele frequency [0-1] (optional) |
+| `FRQ` | numeric | Effect allele frequency (optional) |
 | `N` | numeric | Sample size (optional) |
-| `INFO` | numeric | Imputation quality [0-1] (optional) |
+| `INFO` | numeric | Imputation quality (optional) |
 
 **File format:** Tab-delimited, gzip-compressed text (.txt.gz)
 
