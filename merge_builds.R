@@ -19,17 +19,6 @@ cat("Merging builds for", trait, "...\n")
 hg19 <- fread(hg19_file)
 hg38 <- fread(hg38_file)
 
-# Swap A1 and A2 column names in both datasets
-if ("A1" %in% names(hg19) && "A2" %in% names(hg19)) {
-  setnames(hg19, c("A1", "A2"), c("A2_temp", "A1_temp"))
-  setnames(hg19, c("A2_temp", "A1_temp"), c("A1", "A2"))
-}
-
-if ("A1" %in% names(hg38) && "A2" %in% names(hg38)) {
-  setnames(hg38, c("A1", "A2"), c("A2_temp", "A1_temp"))
-  setnames(hg38, c("A2_temp", "A1_temp"), c("A1", "A2"))
-}
-
 setnames(hg19, c("CHR", "BP"), c("CHR_hg19", "BP_hg19"))
 setnames(hg38, c("CHR", "BP"), c("CHR_hg38", "BP_hg38"))
 
